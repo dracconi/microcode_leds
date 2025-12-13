@@ -1,5 +1,3 @@
-`timescale 1ns/1ns
-
 module prescaler
   #(parameter WIDTH = 10)
    (input  clk,
@@ -15,3 +13,4 @@ module prescaler
        {cout, ctr} <= {1'b0, {WIDTH{1'b0}}};
 
 endmodule
+

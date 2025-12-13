@@ -1,5 +1,3 @@
-`timescale 1ns / 1ns
-
 module pwm
   #(parameter PWM_WIDTH = 4)
    (input        clk,
@@ -22,3 +20,4 @@ module pwm
    assign pwm[1] = pwm_in[1] > cnt;
    assign pwm[2] = pwm_in[2] > cnt_180;
 endmodule
+

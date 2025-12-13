@@ -1,5 +1,3 @@
-`timescale 1ns / 1ns
-
 module top_tb();
    reg clk = 1'b0;
 
@@ -19,3 +17,4 @@ module top_tb();
    end
       
 endmodule
+

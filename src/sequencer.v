@@ -1,5 +1,3 @@
-`timescale 1ns/1ns
-
 module sequencer
   (input         clk,
    output [12:1] vec,
@@ -37,6 +35,6 @@ module sequencer
        end
      endcase
    end
-
    
 endmodule
+

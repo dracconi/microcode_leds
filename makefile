@@ -14,8 +14,5 @@ sim: $(OBJS)/Vtop_tb
 clean:
 	rm -r $(OBJS)
 
-listing/%.v: src/%.v
-	echo "###" $< | cat -n - $< > $@
-
-listing.txt: listing/top.v listing/sequencer.v listing/rom.v listing/counter.v listing/prescaler.v
-	cat listing/* > listing.txt
+listing.txt: $(SFILES)
+	cat $^ > listing.txt

@@ -1,5 +1,3 @@
-`timescale 1ns / 1ns
-
 module top
    (input         clk,
     output [12:1] vec,
@@ -11,3 +9,4 @@ module top
    pwm pwm_gen(.clk(clk), .pwm_in(pwm_tab), .pwm(pwm));
    
 endmodule
+

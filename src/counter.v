@@ -1,5 +1,3 @@
-`timescale 1ns/1ns
-
 module counter
   #(parameter WIDTH = 9)
    (input           clk,
@@ -21,3 +19,4 @@ module counter
      end
    
 endmodule
+

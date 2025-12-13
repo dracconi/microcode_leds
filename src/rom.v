@@ -1,5 +1,3 @@
-`timescale 1ns/1ns
-
 module rom
   #(parameter FILE = "memory.hex",
     parameter WIDTH = 32,
@@ -24,3 +22,4 @@ module rom
    end
    
 endmodule
+
