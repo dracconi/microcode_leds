@@ -15,4 +15,4 @@ clean:
 	rm -r $(OBJS)
 
 listing.txt: $(SFILES)
-	cat $^ > listing.txt
+	cat -n $^ > listing.txt
