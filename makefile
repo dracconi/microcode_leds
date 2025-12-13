@@ -1,6 +1,6 @@
 OBJS = obj_dir
 SRCS = src
-FILES = top_tb.v top.v sequencer.v rom.v counter.v prescaler.v
+FILES = top_tb.v top.v sequencer.v rom.v counter.v prescaler.v pwm.v
 SFILES = $(addprefix $(SRCS)/,$(FILES))
 
 .PHONY: clean sim

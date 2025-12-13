@@ -5,22 +5,22 @@ module sequencer
    output [12:1] vec,
    output [4:1]  pwm [1:2]);
 
-   parameter OP_WAIT = 3'b000;
-   parameter OP_JUMP = 3'b001;
+   parameter OP_WAIT = 1'b0;
+   parameter OP_JUMP = 1'b1;
    
    reg fetch = 1'b1;
    
-   wire [3:1] opcode;
+   wire opcode;
    wire [9:1] addr_or_cycles;
    wire [9:1] daddr;
+   wire [2:1] UNUSED;
    wire [32:1] dout;
    wire [9:1]  next_addr = (opcode == OP_JUMP ? addr_or_cycles : (daddr + 1));
    rom ucode(.clk(clk), .en(fetch), .addr(next_addr), .daddr(daddr), .dout(dout));
-   assign {pwm[2], pwm[1], vec, opcode, addr_or_cycles} = dout;
+   assign {pwm[2], pwm[1], vec, UNUSED, opcode, addr_or_cycles} = dout;
 
-   wire prescaler_reset = fetch || opcode != OP_WAIT;
    wire cout;
-   prescaler prs(.clk(clk), .cout(cout), .reset(prescaler_reset));
+   prescaler prs(.clk(clk), .cout(cout), .reset(fetch));
    wire finished;
    counter ctr(.clk(clk), .en(cout), .threshold(addr_or_cycles), .reset(fetch), .finished(finished));
 
@@ -35,7 +35,6 @@ module sequencer
        OP_JUMP : begin
           fetch = ~fetch;
        end
-       default : fetch <= 1'b1;
      endcase
    end
 
